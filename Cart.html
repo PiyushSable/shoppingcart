@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart </title>
+    <link href="./style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+    
+    <h1> Shopping Cart</h1>
+
+    <div class = "container">
+        <div class = "wrapper">
+            <img src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-12-purple-select-2021?wid=940&hei=1112&fmt=png-alpha&.v=1617130317000" alt="iPhone"/>
+            <p> iPhone 11 4/64 GB</p>
+            <b> Rs. 56000 </b>
+            <button onclick="AddItem('iPhone 11')"> ADD TO CART </button>
+        </div>
+        <div class = "wrapper">
+            <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-xr-coral-select-201809?wid=470&hei=556&fmt=png-alpha&.v=1551226036571" alt="iPhone"/>
+            <p> iPhone Xr 4/64 GB</p>
+            <b> Rs. 39000 </b>
+            <button onclick="AddItem('iPhone Xr')"> ADD TO CART </button>
+        </div>
+        <div class = "wrapper">
+            <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone11-green-select-2019?wid=470&hei=556&fmt=png-alpha&.v=1566956144838" alt="iPhone"/>
+            <p> iPhone 12 4/64 GB</p>
+            <b> Rs. 70000 </b>
+            <button onclick="AddItem('iPhone 12')"> ADD TO CART </button>
+        </div>
+        <div class = "wrapper">
+            <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-se-white-select-2020?wid=470&hei=556&fmt=png-alpha&.v=1586574259457" alt="iPhone"/>
+            <p> iPhone SE 4/64 GB</p>
+            <b> Rs. 45000 </b>
+            <button onclick="AddItem('iPhone SE')"> ADD TO CART </button>
+        </div>
+    </div>
+
+    <div id="checkoutitems">
+        <h4> Cart Items <span id="RemoveInfo"> Click on the item to remove it </span> </h4>
+            <ol id="items">
+            </ol>
+    </div>
+
+    <div id="checkoutamt">
+        <h4> Cart Value </h4>
+        <h2 id="finalamt"> 0 </h2>
+    </div>
+
+    <script type="text/javascript">
+    
+    var amount = 0;
+    function AddItem(item){
+        
+        switch(item){
+            case "iPhone 11" : AddList(56000)
+                               AddtoList(item)
+                               break;
+
+            case "iPhone SE" : AddList(45000)
+                               AddtoList(item);
+                               break;
+            
+            case "iPhone 12" : AddList(70000)
+                               AddtoList(item);
+                               break;
+
+            case "iPhone Xr" : AddList(39000)
+                               AddtoList(item);
+                               break;
+        }
+
+    }
+
+    function AddtoList(item) {
+        document.getElementById('RemoveInfo').style.visibility = 'visible';
+        var items = document.getElementById('items');
+        var newElement = document.createElement('li');
+        newElement.setAttribute('value' , item);
+        newElement.setAttribute('id' , item);
+        newElement.addEventListener('click' , function() {
+            var element = document.getElementById(item);
+            element.remove();
+            document.getElementById('RemoveInfo').style.visibility = 'hidden';
+            removeItem(item);
+        });
+        newElement.innerText = item;
+        items.appendChild(newElement);
+    }
+
+    function AddList(amt) {
+        amount += amt;
+        document.getElementById('finalamt').innerText  = "Rs." + amount;
+    }
+
+
+    function removeItem(item){
+        
+        switch(item){
+            case "iPhone 11" : amount-=56000;
+                               break;
+
+            case "iPhone SE" : amount-=45000;
+                               break;
+            
+            case "iPhone 12" : amount-=70000;
+                               break;
+
+            case "iPhone Xr" : amount-=39000
+                               break;
+        }
+
+        document.getElementById('finalamt').innerText  = "Rs." + amount;
+    }
+    </script>
+</body>
+</html>

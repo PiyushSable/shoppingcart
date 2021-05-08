@@ -1,0 +1,77 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Public Sans';
+        }
+
+        h1{
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .container{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        #checkoutamt{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1rem auto;
+            border-radius: 0.2rem;
+            background-color: #9f5f80;
+            padding: 1rem;
+        } 
+        
+        #checkoutitems{
+            display: flex;
+            flex-direction: column;
+            margin: 1rem auto;
+            border-radius: 0.2rem;
+            background-color:#9f5f80;
+            padding: 2rem;
+            line-height: 2rem;
+        }
+
+        .container > .wrapper {
+            background-color: #126e82;
+            color: #9dbeb9;
+            box-shadow: -4px 7px 105px 0px rgba(157,223,211,0.76);
+            padding: 1rem;
+            margin: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            line-height: 2rem;
+            border-radius: 0.2rem;
+        }
+
+        .wrapper > img { 
+            height: 10rem;
+            width: 8rem;
+        }
+
+        li {
+            cursor: pointer;
+        }
+        .wrapper > button {
+            height: auto;
+            width: auto;
+            padding: 0.5rem;
+            cursor: pointer;
+            border: 0rem;
+            border-radius: 0.2rem;
+            color: #151515;
+            background-color: #b4a5a5;
+        }
+
+        #RemoveInfo{
+            color:darkgray;
+            visibility: hidden;
+        }
